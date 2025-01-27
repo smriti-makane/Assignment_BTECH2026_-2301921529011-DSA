@@ -1,0 +1,21 @@
+Problem Statement : Given an array, we have to find the largest element in the array.
+                    Example, Input : [2,5,1,3,0]
+                             Output: 5
+
+Approach (Brute force). Sort the array in ascending order. Print the (size of the array -1)th index.
+
+
+import java.util.Arrays;
+class Main{
+    static int sort(int arr[]){
+        
+        Arrays.sort(arr);
+        return arr[arr.length-1];
+    }
+    public static void main(String[]args){
+        int arr[] = {2,5,1,3,0};
+        
+        int largest =sort(arr);
+        System.out.println(largest);
+    }
+}
