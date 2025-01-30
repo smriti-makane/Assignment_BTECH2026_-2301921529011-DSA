@@ -1,0 +1,19 @@
+Problem Statement : Sort an Array in Ascending Order
+                   Example, Input:{5, 2, 9, 1, 7}
+                            Output: {1,2,5,7,9}
+
+Approach (Brute force)✅ Using Arrays.sort(arr);
+                          Step 1: The input array is given.
+                          Step 2: The built-in Timsort algorithm is applied to sort the array in ascending order.
+                          Step 3: The sorted array is printed.
+import java.util.Arrays;
+
+public class SortArray {
+    public static void main(String[] args) {
+        int[] arr = {5, 2, 9, 1, 7};
+
+        Arrays.sort(arr); // Sorting in ascending order
+
+        System.out.println("Sorted Array (Ascending): " + Arrays.toString(arr));
+    }
+}
