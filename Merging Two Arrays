@@ -1,0 +1,36 @@
+Problem Statement : We are given two arrays, and our task is to combine them into a single array while preserving their order.
+                    Example,Input:  arr1 = {1, 3, 5}
+                                    arr2 = {2, 4, 6}
+                            Output: {1, 3, 5, 2, 4, 6}
+
+Approach (Brute force)  1️⃣ Create a new array of size (size of arr1 + size of arr2).
+                        2️⃣ Copy elements from arr1 into the new array.
+                        3️⃣ Copy elements from arr2 into the new array.
+                        4️⃣ Print the merged array.
+
+import java.util.Arrays;
+public class MergeArrays {
+    public static int[] mergeArrays(int[] arr1, int[] arr2) {
+        int n1 = arr1.length, n2 = arr2.length;
+        int[] mergedArray = new int[n1 + n2]; 
+      
+        for (int i = 0; i < n1; i++) {
+            mergedArray[i] = arr1[i];
+        }
+
+        for (int i = 0; i < n2; i++) {
+            mergedArray[n1 + i] = arr2[i];
+        }
+
+        return mergedArray;
+    }
+
+    public static void main(String[] args) {
+        int[] arr1 = {1, 3, 5};
+        int[] arr2 = {2, 4, 6};
+
+        int[] result = mergeArrays(arr1, arr2);
+
+        System.out.println("Merged Array: " + Arrays.toString(result));
+    }
+}
