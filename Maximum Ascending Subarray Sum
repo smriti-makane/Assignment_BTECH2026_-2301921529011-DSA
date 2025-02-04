@@ -1,0 +1,29 @@
+Problem Statement : Given an array of positive integers nums, return the maximum possible sum of an ascending subarray in nums. A subarray is defined as a contiguous sequence of numbers in an array. A subarray [numsl, numsl+1, ..., numsr-1, numsr] is ascending if for all i where l <= i < r, numsi  < numsi+1. Note that a subarray of size 1 is ascending.
+
+Coding Platform Used : Leet Code
+
+Approach (Sliding Window / Greedy Approach): Initialize Variables
+                                            1. maxSum to store the highest sum found so far.
+                                            2. currentSum to track the sum of the current ascending subarray.
+                                            3. Start iterating through the array.
+                                            
+                                            Traverse the Array
+                                           1.Start with the first element and set currentSum = nums[0].
+                                           2.As you move through the array: If the next number is greater than the current number, add it to currentSum.
+                                                                            Otherwise, update maxSum if currentSum is greater and reset currentSum to the new number.
+                                      
+                                            Update and Return the Maximum Sum
+                                            1. After the loop, update maxSum one last time (in case the largest subarray is at the end).
+                                            2. Return maxSum.
+
+
+class Solution {
+    public int maxAscendingSum(int[] nums) {
+        int curr = nums[0], ans = nums[0];
+        for (int i = 1; i < nums.length; i++) {
+            curr = nums[i] > nums[i - 1] ? curr + nums[i] : nums[i];
+            ans = Math.max(ans, curr);
+        }
+        return ans;
+    }
+}
