@@ -1,0 +1,35 @@
+Problem Statement: Given a string, find the length of the longest substring that contains unique characters (i.e., no repeating characters)
+                   Input : s = "abcabcbb"
+                   Output : 3
+
+Approach Used: Sliding Window (Two Pointers)
+✅ We use a Sliding Window Technique to find the longest substring.
+✅ This approach uses two pointers (left and right) to track unique characters.
+✅ We use a HashSet to store characters and check for duplicates.
+
+
+import java.util.HashSet;
+
+public class LongestSubstring {
+    public static int longestUniqueSubstring(String s) {
+        HashSet<Character> set = new HashSet<>();
+        int maxLength = 0, left = 0;
+
+        for (int right = 0; right < s.length(); right++) {
+            while (set.contains(s.charAt(right))) {
+                set.remove(s.charAt(left));
+                left++;
+            }
+            set.add(s.charAt(right));
+            maxLength = Math.max(maxLength, right - left + 1);
+        }
+        return maxLength;
+    }
+
+    public static void main(String[] args) {
+        String s = "abcabcbb";
+        int result = longestUniqueSubstring(s);
+        System.out.println("Longest Unique Substring Length: " + result);
+    }
+}
+
