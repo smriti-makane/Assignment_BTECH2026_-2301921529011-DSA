@@ -1,0 +1,22 @@
+Problem Statement: Given an array nums, return true if the array was originally sorted in non-decreasing order, then rotated some number of positions (including zero). Otherwise, return false.There may be duplicates in the original array.
+                   Input: nums = [3,4,5,1,2]
+                   Output: true
+
+Approach : 1️⃣ Initialize a counter (count) to track how many times nums[i] > nums[i+1].
+           2️⃣ Loop through the array and count breakpoints (where order is broken).
+           3️⃣ Check Conditions for a Valid Rotated Sorted Array: If count == 0 → Array is already sorted (true).
+                                                                  If count == 1 → The array can be rotated (true).
+                                                                  If count > 1 → The array is not a valid rotation (false).
+           4️⃣ Edge Case: Handle the circular nature of the array by checking the first and last elements (nums[n-1] > nums[0]).
+
+
+
+class Solution {
+    public boolean check(int[] nums) {
+        int count = 0, n = nums.length;
+        for (int i = 0; i < n; i++) 
+            if (nums[i] > nums[(i+1) % n] && ++count > 1) 
+             return false;
+              return count <= 1;
+    }
+}
