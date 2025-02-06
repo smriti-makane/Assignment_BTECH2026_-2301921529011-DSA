@@ -9,8 +9,7 @@ Approach (Sliding Window / Greedy Approach): Initialize Variables
                                             
                                             Traverse the Array
                                            1.Start with the first element and set currentSum = nums[0].
-                                           2.As you move through the array: If the next number is greater than the current number, add it to currentSum.
-                                                                            Otherwise, update maxSum if currentSum is greater and reset currentSum to the new number.
+                                           2.As you move through the array: If the next number is greater than the current number, add it to currentSum. Otherwise, update maxSum if currentSum is greater and reset currentSum to the new number.
                                       
                                             Update and Return the Maximum Sum
                                             1. After the loop, update maxSum one last time (in case the largest subarray is at the end).
