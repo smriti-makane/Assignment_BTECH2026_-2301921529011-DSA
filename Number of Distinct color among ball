@@ -1,0 +1,45 @@
+Problem Statement : You are given an integer limit and a 2D array queries of size n x 2. There are limit + 1 balls with distinct labels in the range [0, limit]. Initially, all balls are uncolored. For every query in queries that is of the form [x, y], you mark ball x with the color y. After each query, you need to find the number of distinct colors among the balls. Return an array result of length n, where result[i] denotes the number of distinct colors after ith query.
+
+Approach : 1️⃣ Use a HashMap bal to store key-value pairs (ball -> color).
+              Each query updates a mapping of a ball (ID) to its color.
+           
+           2️⃣ Use a second HashMap col to count occurrences of each color.
+              It keeps track of how many balls have a specific color.
+
+           3️⃣ Iterate through the queries and update both HashMaps efficiently.
+              If the ball already has a color, decrease the count of the old color in col.
+              Assign the new color to the ball in bal.
+              Update the count of the new color in col.
+
+           4️⃣ At each query step, store the size of col (number of unique colors) in the res array.
+               res[i] = col.size(); stores the number of distinct colors after each query.
+
+
+
+class Solution {
+    public int[] queryResults(int limit, int[][] queries) {
+        Map<Integer, Integer> bal=new HashMap<>();
+        Map<Integer, Integer> col=new HashMap<>();
+        int n=queries.length;
+        int[] res=new int[n];
+
+        for(int i=0; i<n; i++){
+            if(!bal.containsKey(queries[i][0])){
+                bal.put(queries[i][0],queries[i][1]);
+            }else{
+                if(col.get(bal.get(queries[i][0]))==1){
+                    col.remove(bal.get(queries[i][0]));
+                }else{
+                    col.put(bal.get(queries[i][0]), col.get(bal.get(queries[i][0]))-1);
+                }
+                bal.put(queries[i][0],queries[i][1]);
+            }
+
+            col.put(queries[i][1],col.getOrDefault(queries[i][1],0)+1);
+
+            res[i]=col.size();
+        }
+        
+        return res;
+    }
+}
