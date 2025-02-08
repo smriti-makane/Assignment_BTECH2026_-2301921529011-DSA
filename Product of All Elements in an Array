@@ -1,0 +1,27 @@
+Problem Statement : We need to multiply all elements in an array and return the product.
+                    Input : arr = {2, 3, 4, 5}
+                    Output: Product = 120  (2 × 3 × 4 × 5)
+
+Approach : Initialize a variable product = 1.
+           Loop through the array and multiply each element with product.
+           Print the final result.
+
+
+public class ProductOfArray {
+    public static int findProduct(int[] arr) {
+        int product = 1;
+
+        for (int num : arr) { 
+            product *= num;  
+        }
+
+        return product;
+    }
+
+    public static void main(String[] args) {
+        int[] arr = {2, 3, 4, 5}; 
+
+        System.out.println("Product of all elements: " + findProduct(arr));
+    }
+}
+
