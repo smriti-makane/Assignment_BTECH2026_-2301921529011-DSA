@@ -1,0 +1,37 @@
+Problem Statement: Given an array, and an element num the task is to find if num is present in the given array or not. If present print the index of the element or print -1.
+                   Input: arr[]= 1 2 3 4 5, num = 3
+                   Output: 2
+
+Approach : 1. Given an array
+           2. We will traverse the whole array and see if the element is present in the array or not
+           3. If found we will print the index of the element
+           4. Otherwise, we will print -1
+
+
+
+import java.util.*; 
+public class Main {
+    public static int Search(int[] arr, int n, int num) {
+        for (int i = 0; i < n; i++) {
+            if (arr[i] == num) { 
+                return i; 
+            }
+        }
+        return -1; 
+    }
+
+    public static void main(String[] args) {
+        int num = 3; 
+        int arr[] = {1, 2, 3, 4, 5};
+        int index = Search(arr, arr.length, num);
+        
+        if (index != -1) {
+            System.out.println("Element found at index: " + index);
+        } else {
+            System.out.println("Element not found");
+        }
+    }
+}
+
+
+
