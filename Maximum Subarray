@@ -1,0 +1,17 @@
+class Solution {
+    public int maxSubArray(int[] nums) {
+        int n = nums.length;
+       
+         int largestsum = 0;
+         int maxi= Integer.MIN_VALUE; 
+         for(int i =0; i<n; i++){
+            largestsum+=nums[i]; 
+            maxi = Math.max(largestsum,maxi);
+            if(largestsum<0){
+               
+                return 0;   
+            }
+         }  
+         return maxi; 
+    }
+}
