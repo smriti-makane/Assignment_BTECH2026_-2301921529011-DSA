@@ -2,7 +2,7 @@ Problem Statement :Count the Occurrences of a Specific Number in an Array
                    Example, Input:{1, 2, 3, 4, 2, 2, 5}
                             Output: The number 2 appears 3 times.
 
-Approach (Brute force)1️⃣ Initialize a Counter: Create a variable count = 0 to store the number of times the target appears.
+Approach (Brute force)1️⃣ Initialize a Counter: Create a variable count = 0 to store the number of times the target appears. 
                       2️⃣ Loop Through the Array: Use a for loop (enhanced for-loop) to check each element in the array.
                       3️⃣ Compare Each Element: If the current element matches the target number, increase the count (count++).
                       4️⃣ Print the Result: After the loop ends, print the final count of occurrences.
