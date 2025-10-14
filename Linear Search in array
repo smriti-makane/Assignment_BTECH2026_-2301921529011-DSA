@@ -5,7 +5,7 @@ Problem Statement: Given an array, and an element num the task is to find if num
 Approach : 1. Given an array
            2. We will traverse the whole array and see if the element is present in the array or not
            3. If found we will print the index of the element
-           4. Otherwise, we will print -1
+           4. Otherwise, we will print -1 
 
 
 
